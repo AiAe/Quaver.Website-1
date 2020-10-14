@@ -1,0 +1,50 @@
+{% extends "layouts/app.twig" %}
+{% block content %}
+    <section class="bg-image bg-dark py-5 py-lg-7 px-4 px-lg-0" style="background-color: rgb(52, 53, 56) !important;">
+        <img class="background" src="{{ assets('/img/cover.jpg') }}" alt="">
+        <div class="container">
+            <div class="row align-items-center text-center">
+                <div class="col-md-8 mx-auto">
+                    <h1 class="display-5 text-white font-weight-bold">
+                        Artist Name...
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="widget widget-game mb-0" style="background-color: rgb(52, 53, 56) !important;">
+                <img src="{{ assets('/img/cover.jpg') }}" alt="" style="opacity: 0.5">
+                <div class="widget-body text-center">
+                    <h1 class="widget-title text-white">Album name...</h1>
+                </div>
+            </div>
+            <div class="card">
+                <div class="tracks">
+                    {% for track in artist.tracks %}
+                        <div class="track">
+                            <audio id="track_{{ loop.index }}" src="{{ track.songUrl }}" preload="none"></audio>
+                            <div class="number number-prefix">{{ loop.index }}</div>
+                            <div class="number">
+                                    <span onclick="song({{ loop.index }})" class="song_button_{{ loop.index }}">
+                                        <i class="fas fa-play"></i>
+                                    </span>
+                            </div>
+                            <div class="song">{{ track.name }}</div>
+                            <div class="length">{{ track.songLength }}</div>
+                            <div class="download">
+                                <a href="{{ track.mapDownload }}"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script defer src="{{ assets('/js/artists.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layouts/app.twig" %}
+{% block content %}
+    <section class="bg-image bg-dark py-5 py-lg-7 px-4 px-lg-0" style="background-color: rgb(52, 53, 56) !important;">
+        <img class="background" src="{{ assets('/img/cover.jpg') }}" alt="">
+        <div class="container">
+            <div class="row align-items-center text-center">
+                <div class="col-md-8 mx-auto">
+                    <h1 class="display-5 text-white font-weight-bold">
+                        Featured Artists
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-lg-5" id="artists">
+        <div class="container">
+            <div class="row">
+                {% for artist in artists %}
+                    <div class="col-lg-3 col-md-4 col-sm-4 equal artist">
+                        <div class="card card-sm">
+                            <div class="image">
+                                <a href="{{ baseUrl('/artist/'~artist.id) }}">
+                                    <img src="{{ assets('/img/artists/'~artist.id~'.jpg') }}" alt="{{ artist.name }}">
+                                </a>
+                            </div>
+                            <div class="card-body text-center" style="border-radius: 0">
+                                <h5 class="card-title">
+                                    <a href="{{ baseUrl('/artist/'~artist.id) }}">{{ artist.name }}</a>
+                                </h5>
+                                <p class="card-text">
+                                    <small>{{ artist.songs }} Tracks</small>
+                                </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                {% for social in artist.links %}
+                                    <li class="list-group-item" style="background: #242424;">
+                                        <a href="{{ social.url }}" class="btn btn-social btn-{{ social.name|lower }} btn-link" target="_blank">
+                                            <i class="fab fa-{{ social.name|lower }}"></i> {{ social.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
