@@ -21,6 +21,7 @@ import Ranking from "../controllers/ranking/Ranking";
 import Oauth2 from "../controllers/developers/Oauth2";
 import Applications from "../controllers/developers/Applications";
 import Modding from "../controllers/maps/Modding";
+import Artists from "../controllers/artists/Artists";
 
 export default class Router {
     /**
@@ -90,8 +91,8 @@ export default class Router {
         router.route("/donate/connect").get(Authentication.RequireLogin, Donate.DiscordConnect);
         router.route("/donate/unlink").get(Authentication.RequireLogin, Donate.DiscordUnlink);
 
-        // router.route("/artists").get(Artists.GET);
-        // router.route("/artist/:id").get(Artists.ArtistGET);
+        router.route("/artists").get(Artists.GET);
+        router.route("/artist/:id").get(Artists.ArtistGET);
 
         router.route("/login").get(Login.GET);
         router.route("/login/verify").get(Login.VerifyGET);
