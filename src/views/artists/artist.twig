@@ -1,10 +1,246 @@
 {% extends "layouts/app.twig" %}
 {% block content %}
+    <section class="bg-image bg-dark py-5 py-lg-7 px-4 px-lg-0" style="background-color: rgb(52, 53, 56) !important;">
+        <img class="background" src="{{ assets('/img/cover.jpg') }}" alt="">
+    </section>
 
+    <section id="artist">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="about-artist">
+                        <h1>About Artist name</h1>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the
+                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type
+                            and scrambled it to make a type specimen book. It has survived not only five centuries, but
+                            also the
+                            leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
+                            1960s
+                            with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                            desktop
+                            publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-lg-3">
+                    <div class="artist-card sticky-top">
+                        <div class="artist-image">
+                            <img src="{{ assets('/img/artists/1.jpg') }}" alt="">
+                        </div>
+                        <div class="artist-body">
+                            <div class="artist-name">
+                                Artist name
+                            </div>
+                            <div class="artist-socials">
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </a>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </a>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </a>
+                                <a href="#" class="created-mapsets">
+                                    Created Mapsets
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    {% for test2 in range(2) %}
+                        <div class="artist-tracks">
+                            {% set main = assets("/img/cover.jpg") %}
+                            {% set cover = "https://cdn.quavergame.com/profile-covers/5.jpg" %}
+                            <div class="artist-cover d-flex justify-content-between align-items-center lazy"
+                                 data-bg-multi="linear-gradient(90deg, #1a1a20 1%, rgba(26, 26, 32, 0) 80%), url({{ cover }}), url({{ main }})">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="artist-cover-image">
+                                        <img src="https://i.kys.ovh/ZSlt.png" alt="" width="60" height="60">
+                                    </div>
+                                    <div class="artist-album">
+                                        ALBUM NAME
+                                    </div>
+                                </div>
+                                <div class="artist-download">
+                                    <a href="#" class="btn btn-primary btn-sm">Downlaod as playlist</a>
+                                </div>
+                            </div>
+                            <div class="artist-tracks-body">
+                                {% for test in range(5) %}
+                                    <div class="artist-track d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="artist-track-play">
+                                                <i class="fas fa-play-circle"></i>
+                                            </div>
+                                            <div class="artist-track-name">
+                                                Bass Slut
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="artist-track-info text-right" style="line-height: 1.2">
+                                                <div>7:27</div>
+                                                <div>727 bpm</div>
+                                            </div>
+                                            <div class="artist-track-download">
+                                                <a href="#">
+                                                    <i class="fas fa-download"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
 
 {% block style %}
     <style>
+        #artist .about-artist {
+            background: #242424;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        #artist .about-artist h1 {
+            color: #44D6F5;
+            margin: 0 0 10px 0;
+            padding: 0;
+            font-size: 18px;
+        }
+
+        #artist .about-artist p {
+            color: #FFFFFF;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #artist .artist-card .artist-image img {
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        #artist .artist-card .artist-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+            color: #44D6F5;
+        }
+
+        #artist .artist-card .artist-body {
+            background: #242424;
+            border: 1px solid #353535;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 6px 6px;
+            padding: 8px 12px;
+        }
+
+        #artist .artist-card .artist-socials {
+            margin-top: 10px;
+        }
+
+        #artist .artist-card .artist-socials a {
+            border: 2px solid #353535;
+            border-radius: 3px;
+            width: 100%;
+            display: block;
+            color: #FFFFFF;
+            padding: 4px 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        #artist .artist-card .artist-socials a.created-mapsets {
+            background: #0587E5;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #artist .artist-card .artist-socials a i {
+            margin: 0 10px 0 20px;
+        }
+
+        /*  */
+
+        #artist .artist-tracks-body {
+            background: #242424;
+            border: 1px solid #353535;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 6px 6px;
+            padding: 8px 12px;
+        }
+
+        #artist .artist-tracks {
+            margin-bottom: 30px;
+        }
+
+        #artist .artist-tracks .artist-track {
+            background: #363636;
+            padding: 4px 12px;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+        }
+
+        #artist .artist-tracks .artist-track:last-child {
+            margin-bottom: 0;
+        }
+
+        #artist .artist-tracks .artist-track .artist-track-play {
+            font-size: 25px;
+        }
+
+        #artist .artist-tracks .artist-track .artist-track-name {
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        #artist .artist-tracks .artist-track .artist-track-download a {
+            font-size: 25px;
+            color: #FFFFFF;
+            margin-left: 10px;
+        }
+
+        #artist .artist-tracks .artist-track .artist-track-info {
+            text-transform: uppercase;
+        }
+
+        #artist .artist-tracks .artist-track .artist-track-info div:first-child {
+            color: #F2C94C;
+        }
+
+        #artist .artist-tracks .artist-cover {
+            background-size: cover;
+            background-position: center center;
+            padding: 16px;
+        }
+
+        #artist .artist-tracks .artist-cover .artist-download a{
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #artist .artist-tracks .artist-album {
+            color: #FFFFFF;
+            margin-left: 10px;
+            text-transform: uppercase;
+            font-size: 24px;
+        }
 
     </style>
 {% endblock %}
